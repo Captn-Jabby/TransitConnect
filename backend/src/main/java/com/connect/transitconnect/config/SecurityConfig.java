@@ -23,31 +23,28 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
         http
-            .cors(Customizer.withDefaults()) // Links to your CorsConfig bean above
-            .csrf(csrf -> csrf.disable())    // Disabled for Stateless JWT APIs
+            .cors(Customizer.withDefaults()) 
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                // 1. Explicitly allow CORS "Preflight" requests
+                // 1. Explicitly allow OPTIONS for all paths (Fixes CORS preflight 403)
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                // 2. Allow Login and Register without a token
+                // 2. Allow public access to Auth endpoints
                 .requestMatchers("/auth/**").permitAll()
-                // 3. Protect all other data endpoints
+                // 3. Everything else requires authentication
                 .anyRequest().authenticated()
             )
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             );
 
-        // Add the JWT filter before the standard authentication filter
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration config) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 }
