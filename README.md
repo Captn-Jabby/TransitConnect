@@ -91,9 +91,3 @@ git clone https://github.com/Monishrajpalanivelu/TransitConnect.git
 cd frontend
 npm install
 npm start
-
-
-
----
-
-**Would you like me to help you create a "License" file (like MIT) to accompany this README on your GitHub?**
