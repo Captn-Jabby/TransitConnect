@@ -1,6 +1,6 @@
 import { getToken } from "./auth";
 
-const BASE = "http://localhost:8080/api/routes";
+const BASE = `${process.env.REACT_APP_API_BASE_URL}/api/routes`;
 
 const getAuthHeaders = () => {
   const token = getToken();
