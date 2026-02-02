@@ -1,5 +1,6 @@
 package com.connect.transitconnect.config;
 
+import com.connect.transitconnect.security.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -14,7 +15,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig {
 
-    // Ensure jwtFilter is injected (either via @Autowired or Constructor)
     private final JwtFilter jwtFilter;
 
     public SecurityConfig(JwtFilter jwtFilter) {
@@ -27,15 +27,9 @@ public class SecurityConfig {
             .cors(Customizer.withDefaults()) 
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                // 1. ALLOW THE ERROR PATH (CRITICAL FOR SPRING BOOT 3+)
                 .requestMatchers("/error").permitAll() 
-                
-                // 2. ALLOW OPTIONS PREFLIGHTS
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                
-                // 3. YOUR AUTH PATHS
                 .requestMatchers("/auth/**").permitAll()
-                
                 .anyRequest().authenticated()
             )
             .sessionManagement(session ->
