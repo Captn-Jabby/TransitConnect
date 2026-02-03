@@ -1,27 +1,27 @@
-# 🚍 TransitConnect
+#  TransitConnect
 
 **Find the routes locals actually take.**
 
 TransitConnect is a community-driven, full-stack web application designed to help users discover and share local transit routes. Unlike generic mapping services, TransitConnect focuses on the "hidden" connections and neighborhood shortcuts—the **routes that locals actually use**—to provide a more authentic and efficient travel experience.
 
-🚀 Live Demo
+ Live Demo
 React App :[https://chimerical-wisp-0e018b.netlify.app/](https://transitfrontend.netlify.app)
 
-⚠️ Note: The backend is hosted on a free tier, so the first request may take a few seconds to “wake up” the server.
+ *Note*: The backend is hosted on a free tier, so the first request may take a few seconds to “wake up” the server.
 
-## 🌟 The "Best Suit" Advantage
+##  The "Best Suit" Advantage
 
 TransitConnect knows that the "best" route depends on your priorities. The platform analyzes a network of local **"Stops"** and **"Hops"** (connections) to find the path that best suits your day:
 
-* 🚀 **The Fastest:** When every minute counts and you need the most efficient connection.
-* 💰 **The Cheapest:** Designed for students and budget-conscious travelers to minimize fare costs.
-* 📏 **The Shortest:** For those who prefer the most direct physical path between two locations.
+*  **The Fastest:** When every minute counts and you need the most efficient connection.
+*  **The Cheapest:** Designed for students and budget-conscious travelers to minimize fare costs.
+*  **The Shortest:** For those who prefer the most direct physical path between two locations.
 
 By mapping individual connections as reported by the community, TransitConnect captures localized transit data that official maps often overlook.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 ### **Frontend**
 
@@ -39,7 +39,7 @@ By mapping individual connections as reported by the community, TransitConnect c
 
 ---
 
-## 🔐 Key Architectural Features
+##  Key Architectural Features
 
 * **Community-Driven Data:** A "Stops and Hops" architecture that allows the database to grow through user contributions.
 * **Secure Stateless Auth:** JWT-based security ensures that user data is protected while maintaining high performance.
@@ -48,7 +48,7 @@ By mapping individual connections as reported by the community, TransitConnect c
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 TransitConnect/
@@ -71,7 +71,7 @@ TransitConnect/
 
 ---
 
-## 📦 Local Setup
+##  Local Setup
 
 1. **Clone the repository:**
 ```bash
